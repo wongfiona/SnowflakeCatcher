@@ -12,7 +12,6 @@ void setup()
 void draw()
 {
   background(0);
-  frameRate(1);
   for (int i = 0; i < bob.length; i++)
    {
     bob[i].erase();
@@ -47,7 +46,7 @@ class Snowflake
   }
   void lookDown()
   {
-    if (y <= 500 && 0 <= y)
+    if (y <= 500 && 0 <= y && get (x,y) != color (0))
       isMoving = false;
     else
       isMoving = true;
@@ -65,10 +64,10 @@ class Snowflake
   void wrap()
   {
     if (y > 500)
-    //{  
+    {
       y = 0;
       x = (int)(Math.random()*500);
-    //}
+    }
   }
 }
 
