@@ -1,4 +1,5 @@
 Snowflake [] bob;
+int value = 0;
 
 void setup()
 {
@@ -21,9 +22,15 @@ void draw()
     bob[i].show();
    }
 }
+
 void mouseDragged()
 {
-  //your code here
+  fill(115, 230, 255);
+  ellipse(mouseX, mouseY, 10, 10);
+  value = value + 5;
+  if (value > 255){
+    value = 0;
+  }
 }
 
 class Snowflake
