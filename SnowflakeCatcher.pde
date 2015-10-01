@@ -1,9 +1,8 @@
 Snowflake [] bob;
-int value = 0;
 
 void setup()
 {
-  size(500,500);
+  size(500, 500);
   bob = new Snowflake [100];
    for (int i = 0; i < bob.length; i++)
    {
@@ -12,6 +11,7 @@ void setup()
 }
 void draw()
 {
+  frameRate(20);
   background(0);
   for (int i = 0; i < bob.length; i++)
    {
@@ -21,16 +21,16 @@ void draw()
     bob[i].wrap();
     bob[i].show();
    }
+
+   if (mousePressed)
+    mouseDragged();
 }
 
 void mouseDragged()
 {
+  noStroke();
   fill(115, 230, 255);
   ellipse(mouseX, mouseY, 10, 10);
-  value = value + 5;
-  if (value > 255){
-    value = 0;
-  }
 }
 
 class Snowflake
@@ -53,7 +53,7 @@ class Snowflake
   }
   void lookDown()
   {
-    if (y < 500 && 0 <= y && get (x,y) != color (0))
+    if (y < 500 && 0 < y && get (x,y) != color (0))
       isMoving = false;
     else
       isMoving = true;
