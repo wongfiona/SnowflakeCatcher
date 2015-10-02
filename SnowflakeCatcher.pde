@@ -3,6 +3,7 @@ Snowflake [] bob;
 void setup()
 {
   size(500, 500);
+  background(0);
   bob = new Snowflake [100];
    for (int i = 0; i < bob.length; i++)
    {
@@ -11,8 +12,7 @@ void setup()
 }
 void draw()
 {
-  frameRate(20);
-  background(0);
+  //frameRate(20);
   for (int i = 0; i < bob.length; i++)
    {
     bob[i].erase();
@@ -21,16 +21,14 @@ void draw()
     bob[i].wrap();
     bob[i].show();
    }
-
-   if (mousePressed)
-    mouseDragged();
 }
 
 void mouseDragged()
 {
-  noStroke();
+  //noStroke();
   fill(115, 230, 255);
   ellipse(mouseX, mouseY, 10, 10);
+  noStroke();
 }
 
 class Snowflake
@@ -47,7 +45,6 @@ class Snowflake
   }
   void show()
   {
-    noStroke();
     fill(255);
     ellipse(x, y, 5, 5);
   }
