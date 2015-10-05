@@ -1,4 +1,4 @@
-Snowflake [] bob;
+Snowflake[] bob;
 
 void setup()
 {
@@ -12,7 +12,7 @@ void setup()
 }
 void draw()
 {
-  //frameRate(20);
+  frameRate(20);
   for (int i = 0; i < bob.length; i++)
    {
     bob[i].erase();
@@ -25,10 +25,11 @@ void draw()
 
 void mouseDragged()
 {
-  //noStroke();
+  if (mouseButton == LEFT){
   fill(115, 230, 255);
   ellipse(mouseX, mouseY, 10, 10);
   noStroke();
+  }
 }
 
 class Snowflake
@@ -74,5 +75,3 @@ class Snowflake
     }
   }
 }
-
-
