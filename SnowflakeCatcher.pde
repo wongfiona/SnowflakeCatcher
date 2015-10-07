@@ -13,6 +13,7 @@ void setup()
 void draw()
 {
   frameRate(20);
+  noStroke();
   for (int i = 0; i < bob.length; i++)
    {
     bob[i].erase();
@@ -25,11 +26,9 @@ void draw()
 
 void mouseDragged()
 {
-  if (mouseButton == LEFT){
+  noStroke();
   fill(115, 230, 255);
   ellipse(mouseX, mouseY, 10, 10);
-  noStroke();
-  }
 }
 
 class Snowflake
@@ -46,12 +45,15 @@ class Snowflake
   }
   void show()
   {
-    fill(255);
+    noStroke();
+    fill((int)(Math.random()*255), 255, 255);
     ellipse(x, y, 5, 5);
   }
   void lookDown()
   {
-    if (y < 500 && 0 < y && get (x,y) != color (0))
+    if (y < 500 && 0 < y && get (x,y+7) == color (115, 230, 255))
+      isMoving = false;
+    else if (y < 500 && 0 < y && get (x,y+7) == color (255))
       isMoving = false;
     else
       isMoving = true;
@@ -68,7 +70,7 @@ class Snowflake
   }
   void wrap()
   {
-    if (y > 500)
+    if (y > 490)
     {
       y = 0;
       x = (int)(Math.random()*500);
