@@ -4,7 +4,7 @@ void setup()
 {
   size(500, 500);
   background(0);
-  bob = new Snowflake [100];
+  bob = new Snowflake [130];
    for (int i = 0; i < bob.length; i++)
    {
     bob[i] = new Snowflake();
@@ -27,7 +27,7 @@ void draw()
 void mouseDragged()
 {
   noStroke();
-  fill(115, 230, 255);
+  fill(255);
   ellipse(mouseX, mouseY, 10, 10);
 }
 
@@ -51,9 +51,7 @@ class Snowflake
   }
   void lookDown()
   {
-    if (y < 500 && 0 < y && get (x,y+7) == color (115, 230, 255))
-      isMoving = false;
-    else if (y < 500 && 0 < y && get (x,y+7) == color (255))
+    if (y < 500 && 0 < y && get (x,y+7) == color (255))
       isMoving = false;
     else
       isMoving = true;
